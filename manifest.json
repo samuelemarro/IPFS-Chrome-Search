@@ -3,10 +3,10 @@
   "description" : "A simple tool to search on IPFS",
   "version": "1.1",
   "background": {
-    "scripts": ["background.js"]
+    "service_worker": "background.js"
   },
   "omnibox": { "keyword" : "ipfs" },
-  "manifest_version": 2,
+  "manifest_version": 3,
   "author": "Samuele Marro",
   "incognito": "split",
   "icons": {
@@ -14,5 +14,12 @@
     "32": "icons/32.png",
     "64": "icons/64.png",
     "128": "icons/128.png" 
-  }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "permissions": [
+    "storage"
+  ]
 }
