@@ -3,7 +3,7 @@
   "description" : "A simple tool to search on IPFS",
   "version": "1.1",
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "worker.js"
   },
   "omnibox": { "keyword" : "ipfs" },
   "manifest_version": 3,
