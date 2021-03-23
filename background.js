@@ -2,10 +2,19 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 storedSuggestion = null
+gateway = 'https://gateway.ipfs.io/ipfs/'
+
+function updateGateway() {
+  chrome.storage.sync.get({
+    gateway: 'https://gateway.ipfs.io/ipfs/'
+  }, function(items) {
+    gateway = items.gateway;
+  });
+}
 
 function goToPage(hash) {
   chrome.tabs.update({
-    "url": "https://gateway.ipfs.io/ipfs/" + hash
+    "url": gateway + hash
   }, function () {
       console.log("Bug Page is open");
   });
@@ -54,7 +63,7 @@ function parseSuggestions(jsonResponse, originalText) {
 // as long as the extension's keyword mode is still active.
 chrome.omnibox.onInputChanged.addListener(
   function(text, suggest) {
-    storedSuggestions = {}
+    updateGateway();
     console.log('inputChanged: ' + text);
     querySearch(text);
     });
