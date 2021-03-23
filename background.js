@@ -40,10 +40,10 @@ function parseSuggestions(jsonResponse, originalText) {
   storedSuggestion = hit.hash;
 
   if (originalText.charAt(originalText.length - 1) === " ") {
-    trailingText = " | Jump to Page"
+    trailingText = "<dim> | Jump to Page</dim>"
   }
   else {
-    trailingText = " | Search on IPFS (Space + Enter to jump to page)"
+    trailingText = "<dim> | Search on IPFS (Space + Enter to jump to page)</dim>"
   }
 
   chrome.omnibox.setDefaultSuggestion({description:(hit.title + trailingText)});
