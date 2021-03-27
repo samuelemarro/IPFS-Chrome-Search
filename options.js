@@ -1,4 +1,4 @@
-// Saves options to chrome.storage
+// Save options to chrome.storage
 function save_options() {
     let defaultAction = document.getElementById("defaultAction").value;
     let gateway = document.getElementById("gateway").value;
@@ -15,7 +15,7 @@ function save_options() {
     });
   }
   
-// Restores select box and checkbox state using the preferences
+// Restore select box and checkbox state using the preferences
 // stored in chrome.storage.
 function restore_options() {
   chrome.storage.sync.get({

@@ -1,10 +1,13 @@
+// Contains the suggestion returned by IPFS Search
 var storedSuggestion = null;
+
 // IPFS Gateway/API, will be updated after reading from storage
 var gateway = "https://gateway.ipfs.io/ipfs/";
 
 // Default action
 var defaultAction = "search";
 
+// Read from the options storage
 function updateOptions() {
     chrome.storage.sync.get({
         defaultAction: "search",
@@ -16,6 +19,7 @@ function updateOptions() {
     });
 }
 
+// Jump to suggested URL
 function goToPage(hash) {
     chrome.tabs.update({
         "url": gateway + hash
@@ -24,6 +28,7 @@ function goToPage(hash) {
     });
 }
 
+// Search on IPFS (default)
 function standardSearch(text) {
     chrome.tabs.update({
         "url": "https://ipfs-search.com/#/search?search=" + text
@@ -33,6 +38,7 @@ function standardSearch(text) {
 
 }
 
+// Query the IPFS search API
 function querySearch(text) {
     fetch("https://api.ipfs-search.com/v1/search?q=" + encodeURI(text) + "&type=any&page=1", {
             mode: 'cors'
@@ -48,10 +54,12 @@ function querySearch(text) {
         });
 }
 
+// An action is treated as non-default if its query ends with a space
 function isDefault(text) {
     return text.charAt(text.length - 1) !== " ";
 }
 
+// Get the text that appears after the suggestion
 function getTrailingText(text) {
     let trailingText = "<dim> | ";
 
@@ -82,9 +90,10 @@ function getTrailingText(text) {
     return trailingText;
 }
 
+// Handle the suggestion received from the IPFS API
 function parseSuggestions(jsonResponse, originalText) {
     // Set first suggestion as the default suggestion
-    console.log(jsonResponse);
+    console.log("Received suggestion response: " + jsonResponse);
     let hit = jsonResponse.hits[0];
     storedSuggestion = hit.hash;
 
@@ -108,6 +117,10 @@ chrome.omnibox.onInputChanged.addListener(
 // Fired when the user accepts the suggestion
 chrome.omnibox.onInputEntered.addListener(
     function (text) {
+        if (storedSuggestion == null) {
+            // In case of error, fallback to search
+            standardSearch(text);
+        }
         if (isDefault(text)) {
             if (defaultAction === "go") {
                 goToPage(storedSuggestion, text);
