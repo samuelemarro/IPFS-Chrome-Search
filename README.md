@@ -15,7 +15,7 @@ You can find the packaged extension [here](https://chrome.google.com/webstore/de
 
 ## Installing Manually
 
-1. git clone https://github.com/samuelemarro/IPFS-Chrome-Search
+1. `git clone https://github.com/samuelemarro/IPFS-Chrome-Search`
 1. Open Chrome and go to Extensions
 1. Enable Developer Mode
 1. Click "Load Unpacked"
