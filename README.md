@@ -1,6 +1,8 @@
 # IPFS-Chrome-Search
 IPFS search directly from the Chrome omnibox.
 
+You can find a gifv showing example usage [here](https://gfycat.com/unimportantwarlikejanenschia).
+
 ## About the Extension
 This extension allows you to use ipfs-search's API directly from your search bar. Simply type "ipfs" + Tab/Space to activate it.
 
