@@ -24,3 +24,11 @@ You can find the packaged extension [here](https://chrome.google.com/webstore/de
 ## Bug Reports
 
 You can file a bug report by opening a new issue [here](https://github.com/samuelemarro/IPFS-Chrome-Search/issues/new/choose).
+
+## Screenshots
+
+![1](https://user-images.githubusercontent.com/13946873/114268959-587bff00-9a04-11eb-9a41-4909e1de0b88.png)
+
+![2](https://user-images.githubusercontent.com/13946873/114268961-5b76ef80-9a04-11eb-90dc-9260d82d2e3b.png)
+
+![3](https://user-images.githubusercontent.com/13946873/114268962-5d40b300-9a04-11eb-9ea7-5bd41030860e.png)
