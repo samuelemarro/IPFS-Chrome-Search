@@ -31,4 +31,5 @@ You can file a bug report by opening a new issue [here](https://github.com/samue
 
 ![2](https://user-images.githubusercontent.com/13946873/114268961-5b76ef80-9a04-11eb-90dc-9260d82d2e3b.png)
 
-![3](https://user-images.githubusercontent.com/13946873/114268962-5d40b300-9a04-11eb-9ea7-5bd41030860e.png)
+![4](https://user-images.githubusercontent.com/13946873/114268984-7b0e1800-9a04-11eb-8566-59ca9df1ce67.png)
+
